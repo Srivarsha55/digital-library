@@ -1,3 +1,5 @@
+/* Account.css */
+
 body {
   font-family: 'Georgia', serif;
   background-color: #f4f1ea;
@@ -10,8 +12,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
-  background-color: #e2d6c6;
+  padding: 5px 0; /* Decreased height of the navbar */
+  background-color: #e2d6c6; /* Vintage background color */
+  border-bottom: 2px solid #b8a694; /* Vintage border color */
 }
 
 .page-header-container {
@@ -21,27 +24,30 @@ body {
 
 .toolbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 10px 0;
 }
 
 .filter-options {
   display: flex;
   justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .filter-item {
-  margin: 0 10px;
-  padding: 10px;
+  margin: 0 5px; /* Reduced margin for a more compact look */
+  padding: 8px 15px; /* Reduced padding for a smaller height */
   text-decoration: none;
-  color: #5b4636;
+  color: #5b4636; /* Vintage text color */
   position: relative;
   cursor: pointer;
   font-family: 'Courier New', Courier, monospace;
-  background-color: #e2d6c6;
-  border: 1px solid #b8a694;
+  background-color: #e2d6c6; /* Vintage background color */
+  border: 1px solid #b8a694; /* Vintage border color */
   border-radius: 4px;
 }
 
@@ -50,31 +56,36 @@ body {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: rgb(0, 0, 0);
+  background-color: #5b4636; /* Darker vintage color for active state */
   position: absolute;
   bottom: -5px;
   left: 0;
 }
 
+.filter-item:hover {
+  background-color: #d1bfa5; /* Slightly darker vintage hover color */
+  border-radius: 4px;
+}
+
 .sort-options {
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 10px; /* Adjusted margin */
   padding: 5px;
-  background-color: #e2d6c6;
-  border: 1px solid #b8a694;
+  background-color: #e2d6c6; /* Vintage background color */
+  border: 1px solid #b8a694; /* Vintage border color */
   border-radius: 4px;
   font-family: 'Courier New', Courier, monospace;
-  color: #5b4636;
+  color: #5b4636; /* Vintage text color */
 }
 
 .genre-options {
-  margin-left: 20px;
+  margin-left: 10px; /* Adjusted margin */
   padding: 5px;
-  background-color: #e2d6c6;
-  border: 1px solid #b8a694;
+  background-color: #e2d6c6; /* Vintage background color */
+  border: 1px solid #b8a694; /* Vintage border color */
   border-radius: 4px;
   font-family: 'Courier New', Courier, monospace;
-  color: #5b4636;
+  color: #5b4636; /* Vintage text color */
 }
 
 /* Dropdown Menu Styles */
@@ -86,7 +97,7 @@ body {
 .dropbtn {
   padding: 5px 10px;
   cursor: pointer;
-  background-color: #8b5e3c;
+  background-color: #8b5e3c; /* Vintage dropdown button color */
   color: white;
   border: none;
   font-family: 'Courier New', Courier, monospace;
@@ -96,47 +107,26 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Vintage dropdown background color */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  border: 1px solid #b8a694;
+  border: 1px solid #b8a694; /* Vintage dropdown border color */
 }
 
 .dropdown-content a {
-  color: #5b4636;
-  padding: 12px 16px;
+  color: #5b4636; /* Vintage dropdown text color */
+  padding: 10px 15px; /* Adjusted padding for a more compact look */
   text-decoration: none;
   display: block;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #e2d6c6; /* Vintage dropdown hover color */
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-/* Vintage Theme Styles */
-.vintage-theme {
-  background-color: #e2d6c6;
-  color: #5b4636;
-}
-
-.vintage-theme .filter-item {
-  color: #5b4636;
-}
-
-.vintage-theme .filter-item.active {
-  color: #3b2c1f;
-}
-
-.vintage-theme .sort-options,
-.vintage-theme .genre-options {
-  border: 1px solid #b8a694;
-  background-color: #e2d6c6;
-  color: #5b4636;
 }
 
 /* Responsive Styles */

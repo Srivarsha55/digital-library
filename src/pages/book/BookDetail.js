@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from '../../components/NavBar';
-import Footer from '../../Footer'; 
+import Footer from '../../Footer';
 import './BookDetail.css';
 
 const BookDetail = () => {
@@ -17,7 +17,7 @@ const BookDetail = () => {
     const fetchBook = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/books/${id}`); // Fetch book based on ID
-        console.log('Book data:', response.data); 
+        console.log('Book data:', response.data);
         if (response.status === 200 && response.data) {
           setBook(response.data);
           setRating(response.data.rating);
@@ -26,7 +26,7 @@ const BookDetail = () => {
         }
       } catch (error) {
         console.error('Error fetching book data:', error.response ? error.response.data : error.message);
-        setBook({ pdf: null }); 
+        setBook({ pdf: null });
       }
     };
 
@@ -35,11 +35,11 @@ const BookDetail = () => {
 
   const handleRatingClick = (value) => {
     setUserRating(value);
-    setRating((prevRating) => (prevRating * 4 + value) / 5); 
+    setRating((prevRating) => (prevRating * 4 + value) / 5);
   };
 
   if (!book) {
-    return <div>Book not found</div>; 
+    return <div>Book not found</div>;
   }
 
   return (
@@ -74,10 +74,15 @@ const BookDetail = () => {
           </div>
         </div>
         <div className="right-side">
-          <p className="book-description">{book.description || 'Description not available'}</p>
           {book.pdf ? (
             <div className="pdf-viewer">
-              <button onClick={() => window.open(`data:application/pdf;base64,${book.pdf}`, '_blank')}>Read Book</button>
+              <iframe
+                src={`data:application/pdf;base64,${book.pdf}#toolbar=0&navpanes=0&scrollbar=0`}
+                title="PDF Viewer"
+                width="100%"
+                height="600px"
+                className="pdf-iframe"
+              />
             </div>
           ) : (
             <p>PDF not available</p>

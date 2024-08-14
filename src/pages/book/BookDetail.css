@@ -4,100 +4,150 @@
   background-color: #f0e8d0; /* Light vintage background color */
   border: 1px solid #c1a692; /* Vintage border color */
   border-radius: 8px;
-  height: 100vh; /* Full viewport height for centering */
+  min-height: 100vh; /* Ensure the component takes full viewport height */
   font-family: 'Georgia', serif; /* Classic serif font for vintage feel */
+  animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .left-side {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: flex-start; /* Align items to the start (top) */
+  align-items: center;
+  justify-content: flex-start;
   padding: 20px;
   margin-right: 10px;
+  box-sizing: border-box; /* Include padding in width calculations */
 }
 
 .book-image {
-  width: 150px; /* Ensure consistent width */
-  height: 225px; /* Ensure consistent height */
+  width: 200px; /* Increased width for larger display */
+  height: 300px; /* Increased height for larger display */
   display: flex;
-  align-items: center; /* Center the image vertically */
+  align-items: center;
   justify-content: center;
   margin-top: 90px;
+  animation: fadeInUp 0.6s ease-in-out; /* Fade-in with upward movement */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .book-image img {
-  width: 100%; /* Ensures image fits within the container width */
-  height: 100%; /* Ensures image fits within the container height */
-  object-fit: cover; /* Cover the container without distortion */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  border: 2px solid #c1a692; /* Vintage border around image */
+  border: 2px solid #c1a692;
 }
 
 .book-info {
-  text-align: center; /* Center text in book-info */
-  width: 100%; /* Make sure the text takes the full width available */
+  text-align: center;
+  width: 100%;
+  animation: fadeInUp 0.7s ease-in-out; /* Staggered fade-in */
 }
 
 .book-info h3, .book-info p {
-  margin: 5px 0; /* Add margin for spacing */
+  margin: 5px 0;
 }
 
 .right-side {
   flex: 2;
   padding: 20px;
-  border-left: 2px solid #c1a692; /* Vintage border color */
-  margin-left: 20px; /* Add margin to separate from the left side */
+  border-left: 2px solid #c1a692;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  text-align: center; /* Center text within the container */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeInRight 0.8s ease-in-out; /* Fade-in with rightward movement */
+  box-sizing: border-box; /* Include padding in width calculations */
+  width: 100%;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .book-description {
-  font-size: 20px; /* Increase font size for description */
-  font-weight: bold; /* Makes the text bold */
-  margin-top: -20px; /* Move description up by 20px */
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: -20px;
   margin-bottom: 20px;
   line-height: 1.6;
-  color: #5b3a29; /* Vintage text color */
-  background-color: #f9f5eb; /* Slightly off-white background for the description */
+  color: #5b3a29;
+  background-color: #f9f5eb;
   padding: 15px;
   border-radius: 5px;
+  animation: fadeIn 1s ease-in-out; /* Slightly slower fade-in */
 }
 
 .pdf-viewer {
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 700px; /* Increased height for better PDF viewing */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff8e1; /* Light vintage background for PDF viewer */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  animation: slideIn 1s ease-in-out; /* Slide-in animation */
 }
 
-.pdf-viewer button {
-  background-color: #8b5e3c; /* Vintage button color */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-family: 'Georgia', serif; /* Classic serif font for buttons */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.pdf-viewer button:hover {
-  background-color: #6d4c41; /* Darker button color on hover */
+.pdf-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove iframe border */
 }
 
 .stars {
   display: flex;
-  justify-content: center; /* Center the stars horizontally */
+  justify-content: center;
+  margin-top: 10px;
+  animation: fadeIn 1.2s ease-in-out; /* Fade-in for stars */
 }
 
 .star {
   font-size: 20px;
   cursor: pointer;
-  color: #d4d2c8; /* Gold color for stars */
+  color: #d4d2c8;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
+.star:hover,
 .star.filled {
-  color: #070706; /* Gold color for filled stars */
+  color: #070706;
 }
