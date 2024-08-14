@@ -1,0 +1,29 @@
+.library {
+    padding: 2rem;
+    background-color: #f4f1ea;
+    color: #5b4636;
+    font-family: 'Georgia', serif;
+  }
+  
+  .library h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #8b5e3c;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .library-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .library-list p {
+    font-size: 1.25rem;
+    color: #7e6b55;
+    text-align: center;
+    width: 100%;
+  }
+  

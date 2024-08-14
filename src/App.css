@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0 1rem; /* Add some padding for smaller screens */
+}
+
+/* Make links more responsive */
+.App-link {
+  color: #61dafb;
+  font-size: calc(8px + 1vmin);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 1.5vmin);
+    padding: 0 0.5rem; /* Adjust padding for smaller screens */
+  }
+
+  .App-logo {
+    height: 30vmin; /* Adjust logo size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    font-size: calc(6px + 1.2vmin);
+  }
+
+  .App-logo {
+    height: 25vmin; /* Adjust logo size for very small screens */
+  }
+}

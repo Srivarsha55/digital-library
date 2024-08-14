@@ -1,0 +1,103 @@
+.book-detail {
+  display: flex;
+  padding: 20px;
+  background-color: #f0e8d0; /* Light vintage background color */
+  border: 1px solid #c1a692; /* Vintage border color */
+  border-radius: 8px;
+  height: 100vh; /* Full viewport height for centering */
+  font-family: 'Georgia', serif; /* Classic serif font for vintage feel */
+}
+
+.left-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align items to the start (top) */
+  padding: 20px;
+  margin-right: 10px;
+}
+
+.book-image {
+  width: 150px; /* Ensure consistent width */
+  height: 225px; /* Ensure consistent height */
+  display: flex;
+  align-items: center; /* Center the image vertically */
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.book-image img {
+  width: 100%; /* Ensures image fits within the container width */
+  height: 100%; /* Ensures image fits within the container height */
+  object-fit: cover; /* Cover the container without distortion */
+  border-radius: 8px;
+  border: 2px solid #c1a692; /* Vintage border around image */
+}
+
+.book-info {
+  text-align: center; /* Center text in book-info */
+  width: 100%; /* Make sure the text takes the full width available */
+}
+
+.book-info h3, .book-info p {
+  margin: 5px 0; /* Add margin for spacing */
+}
+
+.right-side {
+  flex: 2;
+  padding: 20px;
+  border-left: 2px solid #c1a692; /* Vintage border color */
+  margin-left: 20px; /* Add margin to separate from the left side */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text within the container */
+}
+
+.book-description {
+  font-size: 20px; /* Increase font size for description */
+  font-weight: bold; /* Makes the text bold */
+  margin-top: -20px; /* Move description up by 20px */
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #5b3a29; /* Vintage text color */
+  background-color: #f9f5eb; /* Slightly off-white background for the description */
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.pdf-viewer {
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-viewer button {
+  background-color: #8b5e3c; /* Vintage button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Georgia', serif; /* Classic serif font for buttons */
+}
+
+.pdf-viewer button:hover {
+  background-color: #6d4c41; /* Darker button color on hover */
+}
+
+.stars {
+  display: flex;
+  justify-content: center; /* Center the stars horizontally */
+}
+
+.star {
+  font-size: 20px;
+  cursor: pointer;
+  color: #d4d2c8; /* Gold color for stars */
+}
+
+.star.filled {
+  color: #070706; /* Gold color for filled stars */
+}

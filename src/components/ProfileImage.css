@@ -1,0 +1,54 @@
+/* Define object-center directly in your CSS */
+.profile-pic,
+.profile-pic .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic {
+  color: transparent;
+  transition: all .3s ease;
+  position: relative;
+}
+
+.profile-pic input {
+  display: none;
+}
+
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px; /* $circleSize */
+  height: 165px; /* $circleSize */
+  box-shadow: 0 0 10px 0 rgba(255,255,255,.35); /* $shadow */
+  border-radius: 100px; /* $radius */
+  z-index: 0;
+}
+
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px; /* $circleSize */
+  width: 165px; /* $circleSize */
+}
+
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,.8);
+  z-index: 10000;
+  color: rgb(250,250,250); /* $fontColor */
+  transition: background-color .2s ease-in-out;
+  border-radius: 100px; /* $radius */
+  margin-bottom: 0;
+}
+
+.profile-pic span {
+  display: inline-flex;
+  padding: .2em;
+  height: 2em;
+}
+
+
+

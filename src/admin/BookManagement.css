@@ -1,0 +1,274 @@
+/* Basic Reset */
+h1, h2, ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar Styles */
+.book-sidebar7 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background-color: #fdfcf7; /* Light cream color */
+    padding: 10px;
+    border-right: 2px solid #d1bfae; /* Vintage border color */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure sidebar is above content */
+    animation: book-slideIn 0.5s ease-out;
+}
+
+.book-sidebar7 h2 {
+    font-size: 1.5rem;
+    color: #3c3c3b; /* Darker vintage color for text */
+    margin-bottom: 20px;
+}
+
+.book-sidebar7 nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.book-sidebar7 nav li {
+    margin-bottom: 20px;
+}
+
+.book-sidebar7 a, .book-sidebar7 button {
+    text-decoration: none;
+    color: #6b4a36; /* Vintage brown color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.book-sidebar7 a:hover, .book-sidebar7 button:hover {
+    color: #a0522d; /* Darker vintage brown for hover */
+}
+
+/* Main Content */
+.book-admin-content {
+    margin-left: 280px; /* Offset for fixed sidebar */
+    padding: 30px;
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Allow content to scroll */
+    height: 100%; /* Full height based on viewport */
+    animation: book-fadeIn 0.5s ease-out;
+}
+
+/* Table Styles */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.book-table th, .book-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle; 
+}
+
+.book-table th {
+    background-color: #e3dcd1; /* Light cream color */
+    color: #3c3c3b; /* Darker vintage color for text */
+    top: 0;
+    z-index: 2;
+}
+.book-table tbody tr {
+    height: 50px;
+}
+
+.book-table tbody tr:nth-child(even) {
+    background-color: #f9f8f7; /* Alternating row color */
+}
+
+.book-table tbody tr:hover {
+    background-color: #f1e6d6; /* Light highlight color on hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Small Image Preview */
+.book-img-preview {
+    width: 50px; /* Small image size */
+    height: auto;
+}
+
+/* Modal Styles */
+.book-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: book-fadeIn 0.3s ease-out;
+}
+
+.book-modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    width: 600px; /* Increased width for two-column layout */
+    margin-top: 50px; /* Adjusted margin to bring the modal down */
+    animation: book-slideIn 0.3s ease-out;
+}
+
+.book-modal-content h2 {
+    margin-top: 0;
+}
+
+/* Grid Layout for Input Fields */
+.book-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Adjusted input fields and dropdown styles */
+.book-modal-content input, .book-modal-content select, .book-modal-content textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #a0522d; /* Vintage gold color for borders */
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding is included in width */
+    background-color: #f9f8f7; /* Light background to match input fields */
+    color: #3c3c3b; /* Darker text color for consistency */
+}
+
+.book-modal-content select {
+    height: 40px; /* Adjust height as needed */
+    -webkit-appearance: none; /* Remove default browser styling */
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px; /* Space for custom dropdown arrow */
+    position: relative;
+}
+
+/* Remove blue background color on select (focus/active state) */
+.book-modal-content select:focus, .book-modal-content input:focus, .book-modal-content textarea:focus {
+    border-color: #a0522d; /* Vintage gold color for focus */
+    outline: none; /* Remove default outline */
+    background-color: #f9f8f7; /* Maintain light vintage background */
+}
+
+/* Remove default dropdown arrow in IE */
+.book-modal-content select::-ms-expand {
+    display: none;
+}
+
+/* Custom dropdown arrow */
+.book-modal-content .select-wrapper {
+    position: relative;
+}
+
+.book-modal-content .select-wrapper::after {
+    content: '▼'; /* Custom arrow */
+    font-size: 14px;
+    color: #3c3c3b; /* Arrow color */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Styling for selected option */
+.book-modal-content select option:checked {
+    background-color: #f1e6d6; /* Light vintage color for selection */
+    color: #3c3c3b; /* Darker text color */
+}
+
+/* Button Styles */
+.book-modal-content button {
+    background-color: #3c3c3b; /* Darker vintage color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-modal-content button:hover {
+    background-color: #a0522d; /* Darker vintage brown */
+}
+
+/* Add/Edit Button Styles */
+.book-open-modal-button {
+    background-color: #3c3c3b; /* Darker vintage color */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-open-modal-button:hover {
+    background-color: #a0522d; /* Darker vintage brown */
+}
+
+.book-logout-button7 {
+    background-color: #d1bfae; /* Vintage tan color */
+    color: #3c3c3b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.book-logout-button7:hover {
+    background-color: #bfa78f; /* Slightly darker tan */
+}
+
+/* Edit/Delete Button Styles */
+.book-edit-button, .book-delete-button {
+    background-color: #3c3c3b; /* Darker vintage color */
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px; /* Space between buttons */
+}
+
+.book-edit-button:hover, .book-delete-button:hover {
+    background-color: #a0522d; /* Darker vintage brown */
+}
+
+
+/* Animations */
+@keyframes book-fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes book-slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

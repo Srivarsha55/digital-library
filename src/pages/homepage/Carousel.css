@@ -1,0 +1,77 @@
+.carousel-container {
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px 0;
+}
+
+.carousel-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f1e9;
+    border: 1px solid #d3b58c;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 15px;
+    overflow: hidden;
+    font-family: 'Garamond', serif; /* Vintage font */
+    flex-direction: column;
+    text-align: center;
+}
+
+.carousel-card .carousel-image {
+    width: 100px; /* Fixed width for images */
+    height: 150px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 6px;
+    margin-bottom: 15px; /* Space between image and text */
+}
+
+.carousel-card .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-card .info h3, .carousel-card .info p {
+    margin: 0;
+    color: #5a3e2b; /* Dark brown color for text */
+}
+
+.carousel-card .info h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.carousel-card .info p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.carousel-card .info .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-card .info .actions .button {
+    color: #5a3e2b;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: 'Garamond', serif;
+    background-color: #e0d8c3; /* Light beige for button background */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    border: 1px solid #d3b58c;
+}
+
+.carousel-card .info .actions .button:hover {
+    background-color: #d3b58c;
+}
+
+.carousel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}

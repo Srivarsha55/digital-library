@@ -1,0 +1,165 @@
+/* Basic Reset */
+.admin-page body, .admin-page h1, .admin-page h2, .admin-page ul {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-page body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f9f8f7; /* Light vintage background */
+    color: #4b4b4b; /* Darker text for readability */
+    overflow: hidden; /* Prevent scrolling issues */
+}
+
+/* Header Styles */
+.admin-page header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #e3dcd1; /* Light cream color */
+    border-bottom: 2px solid #d1bfae; /* Slightly thicker vintage border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000;
+}
+
+.admin-page .header-left h1 {
+    font-size: 28px;
+    color: #3c3c3b; /* Darker vintage color for text */
+    transition: color 0.3s ease;
+}
+
+.admin-page .header-left h1:hover {
+    color: #a0522d; /* Change color on hover */
+}
+
+.admin-page .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page .profile-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #d1bfae; /* Vintage tan color */
+    color: #3c3c3b; /* Darker vintage color for text */
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.admin-page .profile-icon:hover {
+    background-color: #bfa78f; /* Slightly darker tan on hover */
+    transform: scale(1.1); /* Slight scale-up effect */
+}
+
+/* Main Content Layout */
+.admin-page main {
+    display: flex;
+    margin-top: 80px; /* Offset for fixed header */
+    height: calc(100vh - 70px); /* Adjust height based on header height */
+}
+
+.admin-page .sidebar {
+    position: fixed;
+    top: 70px; /* Align with header */
+    left: 0;
+    width: 280px; /* Slightly wider for better layout */
+    background-color: #fdfcf7; /* Light cream color */
+    padding: 20px;
+    border-right: 2px solid #d1bfae; /* Slightly thicker border */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 70px); /* Full height minus header */
+    overflow-y: auto;
+}
+
+.admin-page .sidebar:hover {
+    transform: translateX(-5px); /* Slight shift effect on hover */
+}
+
+.admin-page .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-page .sidebar li {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.admin-page .sidebar li:hover {
+    transform: translateX(10px); /* Subtle shift effect on hover */
+}
+
+.admin-page .sidebar a {
+    text-decoration: none;
+    color: #6b4a36; /* Vintage brown color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+    padding-left: 10px;
+}
+
+.admin-page .sidebar a:hover {
+    color: #a0522d; /* Darker vintage brown for hover */
+    padding-left: 20px; /* Expand padding on hover */
+}
+
+/* Content Styles */
+.admin-page .content {
+    margin-left: 280px; /* Offset for fixed sidebar */
+    flex: 1;
+    padding: 30px;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* Allow content to scroll */
+    height: calc(100vh - 70px); /* Full height minus header */
+}
+
+.admin-page h2 {
+    font-size: 2rem;
+    color: #3c3c3b; /* Darker vintage color for text */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d1bfae; /* Matching vintage border color */
+    padding-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.admin-page h2:hover {
+    color: #a0522d; /* Change color on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

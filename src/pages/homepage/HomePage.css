@@ -1,0 +1,49 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 94.19vh;
+    margin: cover;
+    background-image: url('./home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .home-container h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .marquee {
+    position: absolute;
+    background: #000;
+    bottom: 0px; /* Space from the bottom of the container */
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .marquee-text {
+    display: inline-block;
+    color: #fff;
+    padding-left: 0%; 
+    animation: marquee 15s linear infinite; 
+    font-size: 25px;
+    font-style: bold;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%); 
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
+  }
+  
