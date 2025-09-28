@@ -29,7 +29,7 @@ const BookBar = () => {
         <div className="page-header-container row">
           <div className="toolbar row">
             <div className="filter-options small-12 medium-8 columns">
-              {['all', 'fantasy', 'sci-fi', 'classic', 'fairy', 'young', 'mystery', 'Language'].map((group) => (
+              {['all', 'fantasy', 'sci-fi', 'classic', 'fairy', 'young', 'mystery'].map((group) => (
                 <a
                   href="#"
                   key={group}

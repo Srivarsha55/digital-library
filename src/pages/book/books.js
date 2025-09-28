@@ -8,13 +8,13 @@ const BookViewer = () => (
   <div>
     <NavBar />
     <div id="main-container" className="main-container nav-effect-1">
-      <div className="divider"></div> {/* Divider added here */}
+      <div className="divider"></div> 
       <BookBar />
       <div className="page-container">
         <section id="book_list">
           <div className="grid-shuffle">
             <ul id="grid" className="row">
-              {/* Book items will be added here */}
+             
             </ul>
           </div>
         </section>

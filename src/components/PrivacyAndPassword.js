@@ -1,70 +1,70 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import './Account.css';
 
-const PrivacyAndPassword = ({ userId }) => {
+const PrivacyAndPassword = ({ userId, username }) => {  // Pass username if it's different from userId
   const [passwordData, setPasswordData] = useState({
     currentPassword: '',
     newPassword: '',
     confirmPassword: '',
   });
-
-  const [userInfo, setUserInfo] = useState({});
-  const [isPasswordValid, setIsPasswordValid] = useState(true); // State to check if the current password is valid
-
-  useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/login/${userId}`);
-        setUserInfo(response.data);
-      } catch (error) {
-        console.error('Error fetching user info:', error);
-      }
-    };
-
-    fetchUserInfo();
-  }, [userId]);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setPasswordData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handlePasswordSubmit = async (e) => {
+  const handlePasswordUpdate = async (e) => {
     e.preventDefault();
+    setError('');
+    setSuccess('');
+
+    // Check if new password and confirm password match
     if (passwordData.newPassword !== passwordData.confirmPassword) {
-      alert("New password and confirm password do not match.");
+      setError("New password and confirm password don't match.");
+      return;
+    }
+
+    // Check if the new password is not empty
+    if (passwordData.newPassword.length < 6) {
+      setError('Password must be at least 6 characters.');
       return;
     }
 
     try {
-      // Validate current password
-      const validateResponse = await axios.post(`http://localhost:8080/login/${userId}/validate-password`, {
-        currentPassword: passwordData.currentPassword
+      // Verify the current password by calling the backend /login/check endpoint
+      const checkResponse = await axios.post('http://localhost:8080/login/check', {
+        username: username,  // Assuming username is passed as a prop
+        password: passwordData.currentPassword,
       });
 
-      if (validateResponse.status === 200 && validateResponse.data.valid) {
-        // Update password
-        const updateResponse = await axios.put(`http://localhost:8080/login/${userId}/update-password`, {
-          newPassword: passwordData.newPassword
+      if (checkResponse.data.success) {
+        // Update the password if the current password is correct
+        const updateResponse = await axios.put(`http://localhost:8080/login/${userId}/password`, {
+          currentPassword: passwordData.currentPassword,
+          newPassword: passwordData.newPassword,
         });
 
-        if (updateResponse.status === 200) {
-          alert("Password updated successfully!");
+        if (updateResponse.data.success) {
+          setSuccess('Password updated successfully!');
+          setPasswordData({ currentPassword: '', newPassword: '', confirmPassword: '' });
+        } else {
+          setError('Failed to update the password. Please try again.');
         }
       } else {
-        setIsPasswordValid(false); // Set flag if the current password is invalid
-        alert("Current password is incorrect.");
+        setError('Current password is incorrect.');
       }
     } catch (error) {
-      console.error("Error updating password:", error);
+      setError('Error updating password: ' + (error.response ? error.response.data.message : error.message));
     }
   };
 
   return (
-    <div className="privacy-page">
-      <h2>Security and Privacy</h2>
-      <form className="privacy-form" onSubmit={handlePasswordSubmit}>
+    <div className="privacy-and-password">
+      <h2>Privacy & Password</h2>
+      
+      <form onSubmit={handlePasswordUpdate} className="password-form">
         <div className="input-group">
           <label>Current Password</label>
           <input
@@ -72,10 +72,8 @@ const PrivacyAndPassword = ({ userId }) => {
             name="currentPassword"
             value={passwordData.currentPassword}
             onChange={handleInputChange}
-            placeholder="Current Password"
             required
           />
-          {!isPasswordValid && <span className="error-message">Current password is incorrect.</span>}
         </div>
         <div className="input-group">
           <label>New Password</label>
@@ -84,7 +82,6 @@ const PrivacyAndPassword = ({ userId }) => {
             name="newPassword"
             value={passwordData.newPassword}
             onChange={handleInputChange}
-            placeholder="New Password"
             required
           />
         </div>
@@ -95,11 +92,12 @@ const PrivacyAndPassword = ({ userId }) => {
             name="confirmPassword"
             value={passwordData.confirmPassword}
             onChange={handleInputChange}
-            placeholder="Confirm New Password"
             required
           />
         </div>
-        <button type="submit" className="save-btn">Save</button>
+        {error && <p className="error">{error}</p>}
+        {success && <p className="success">{success}</p>}
+        <button type="submit" className="save-btn">Update Password</button>
       </form>
     </div>
   );

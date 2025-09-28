@@ -6,8 +6,10 @@ import Footer from '../../Footer';
 import './BookDetail.css';
 
 const BookDetail = () => {
-  const { id } = useParams(); // Get the book ID from the URL
+  const { id } = useParams(); // Get book ID from URL
   const [book, setBook] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [rating, setRating] = useState(0);
   const [userRating, setUserRating] = useState(0);
 
@@ -16,17 +18,21 @@ const BookDetail = () => {
 
     const fetchBook = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/books/${id}`); // Fetch book based on ID
-        console.log('Book data:', response.data);
+        const response = await axios.get(`http://localhost:8080/api/books/${id}`);
+        console.log('API Response:', response.data);
+
         if (response.status === 200 && response.data) {
           setBook(response.data);
-          setRating(response.data.rating);
+          setRating(response.data.rating || 0);
         } else {
-          console.error('Book not found');
+          throw new Error('Book not found');
         }
       } catch (error) {
         console.error('Error fetching book data:', error.response ? error.response.data : error.message);
-        setBook({ pdf: null });
+        setError('Book not found');
+        setBook(null);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -35,12 +41,12 @@ const BookDetail = () => {
 
   const handleRatingClick = (value) => {
     setUserRating(value);
-    setRating((prevRating) => (prevRating * 4 + value) / 5);
+    setRating((prevRating) => ((prevRating * 4 + value) / 5).toFixed(1));
   };
 
-  if (!book) {
-    return <div>Book not found</div>;
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
+  if (!book) return <div>Book not found</div>;
 
   return (
     <div>
@@ -69,7 +75,7 @@ const BookDetail = () => {
                   </span>
                 ))}
               </div>
-              <p>Average Rating: {rating.toFixed(1)}</p>
+              <p>Average Rating: {rating}</p>
             </div>
           </div>
         </div>

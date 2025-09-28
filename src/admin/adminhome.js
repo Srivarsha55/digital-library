@@ -1,16 +1,26 @@
+// src/components/Layout.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './adminhome.css'; // Ensure this CSS file is imported
+import { Link, useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import './adminhome.css';
 
 const Layout = ({ children }) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('token'); 
+        navigate('/'); 
+    };
+
     return (
         <div className="admin-page">
             <header className="header">
+                <Link to="/adminhome" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div className="header-left">
                     <h1>NebulaReads</h1>
-                </div>
+                </div></Link>
                 <div className="header-right">
-                    <div className="profile-icon">A</div>
+                    <div className="profile-icon" onClick={handleLogout}>A</div>
                 </div>
             </header>
             <nav className="sidebar">
@@ -22,10 +32,10 @@ const Layout = ({ children }) => {
                 </ul>
             </nav>
             <main className="content">
-                {children}
+                {children || <Dashboard />}  
             </main>
         </div>
     );
-}
+};
 
 export default Layout;

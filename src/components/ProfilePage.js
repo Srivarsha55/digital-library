@@ -10,14 +10,11 @@ const ProfilePage = ({ userId }) => {
     phoneNumber: "",
     birthday: "",
     gender: "",
-    // Initialize password with an empty string
-    password: "",
   });
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Fetch the user data without the password for security reasons
         const response = await axios.get(`http://localhost:8080/login/${userId}`);
         const currentUser = response.data;
 
@@ -29,8 +26,6 @@ const ProfilePage = ({ userId }) => {
             phoneNumber: currentUser.phoneNumber || "",
             birthday: currentUser.birthday || "",
             gender: currentUser.gender || "",
-            // Do not include password from the response
-            password: "", // Initialize as empty
           });
         } else {
           console.error('User not found in API response');
@@ -51,10 +46,7 @@ const ProfilePage = ({ userId }) => {
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Exclude the password field if it is not required for updating
-      const { password, ...updateData } = userData;
-
-      const response = await axios.put(`http://localhost:8080/login/${userData.id}`, updateData);
+      const response = await axios.put(`http://localhost:8080/login/${userData.id}`, userData);
       if (response.status === 200) {
         alert("Profile updated successfully!");
       }

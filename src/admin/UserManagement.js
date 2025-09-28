@@ -145,26 +145,28 @@ const UserManagement = () => {
         </thead>
         <tbody>
           {users.length > 0 ? (
-            users.map(user => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.role}</td>
-                <td>
-                  <button 
-                    className="edit-button" 
-                    onClick={() => { 
-                      setEditingUser(user); 
-                      setEditForm({ username: user.username, email: user.email, role: user.role, password: '' }); 
-                      setShowEditModal(true);
-                    }}>
-                    Edit
-                  </button>
-                  <button className="delete-button" onClick={() => deleteUser(user.id)}>Delete</button>
-                </td>
-              </tr>
-            ))
+            users
+              .filter(user => user.role !== 'admin')  // Exclude users with admin role
+              .map(user => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.role}</td>
+                  <td>
+                    <button 
+                      className="edit-button" 
+                      onClick={() => { 
+                        setEditingUser(user); 
+                        setEditForm({ username: user.username, email: user.email, role: user.role, password: '' }); 
+                        setShowEditModal(true);
+                      }}>
+                      Edit
+                    </button>
+                    <button className="delete-button" onClick={() => deleteUser(user.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))
           ) : (
             <tr>
               <td colSpan="5">No users found</td>

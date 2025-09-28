@@ -15,6 +15,7 @@ import UserManagement from './admin/UserManagement';
 import BookManagement from './admin/BookManagement'; 
 import Subscription from './admin/Subscription';
 import Settings from './admin/Settings';
+import Dashboard from './admin/Dashboard';
 import Account from './components/Account'; // Import the Account page
 import './App.css';
 
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/adminhome" element={<AdminHome />} />
           <Route path="/user-management" element={<UserManagement />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/book-management" element={<BookManagement />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/books" element={<BooksPage />} />

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Account.css';
+import NavBar from './NavBar'; // Import the NavBar component
 import ProfilePage from './ProfilePage';
-import PrivacyAndPassword from './PrivacyAndPassword'; // Import PrivacyAndPassword component
+import PrivacyAndPassword from './PrivacyAndPassword';
 import axios from 'axios';
 
 const Account = () => {
@@ -15,7 +16,7 @@ const Account = () => {
         const response = await axios.get('http://localhost:8080/login');
         const currentUser = response.data.find(user => user.username === loggedInUsername);
         if (currentUser) {
-          setUserId(currentUser.id); // Set user ID
+          setUserId(currentUser.id);
         } else {
           console.error('User not found in API response');
         }
@@ -51,6 +52,7 @@ const Account = () => {
 
   return (
     <div className="account-page">
+      <NavBar /> {/* Add the NavBar here */}
       <header className="page-header">
         <div className="page-header-container row">
           <div className="toolbar row">
